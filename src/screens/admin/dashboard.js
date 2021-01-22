@@ -1,8 +1,25 @@
 import React from "react";
+import { Chart } from "react-google-charts";
 
 import { AdminLayout } from "../../components/admin";
 
 const DashboardScreen = () => {
+  const data = [
+    ["Month", "Revenue", { role: "style" }],
+    ["Jan", 8, "#2c8850"],
+    ["Feb", 10, "#2c8850"],
+    ["Mar", 19, "#2c8850"],
+    ["Apr", 21, "#2c8850"],
+    ["May", 23, "#2c8850"],
+    ["Jun", 32, "#2c8850"],
+    ["Jul", 1, "#2c8850"],
+    ["Aug", 2, "#2c8850"],
+    ["Sep", 54, "#2c8850"],
+    ["Oct", 23, "#2c8850"],
+    ["Nov", 54, "#2c8850"],
+    ["Dec", 25, "#2c8850"],
+  ];
+
   return (
     <AdminLayout>
       <div className="">
@@ -65,14 +82,17 @@ const DashboardScreen = () => {
               {/* Pie Chart */}
               <div className="col-xl-4 col-md-6 mb-4">
                 <div className="card shadow mb-4">
-                  {/* Card Header - Dropdown */}
-                  <div className=" px-2 py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 className="m-0">Inscriptions</h6>
-                  </div>
-                  {/* Card Body */}
-                  <div className="card-body">
-                    <canvas id="myPieChart">400</canvas>
-                  </div>
+                  <p>Inscriptions</p>
+                  <Chart
+                    chartType="PieChart"
+                    loader={<div>Loading Chart ...</div>}
+                    data={[
+                      ["Task", "Hours per Day"],
+                      ["Male", 11],
+                      ["Female", 2],
+                    ]}
+                    rootProps={{ "data-testid": "1" }}
+                  />
                 </div>
               </div>
               <br />
@@ -80,13 +100,12 @@ const DashboardScreen = () => {
               <br />
               <div className="col-xl-4 col-md-6 mb-4">
                 <div className="card shadow mb-4">
-                  {/* Card Header - Dropdown */}
-                  <div className=" px-2 py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 className="m-0">Idades</h6>
-                  </div>
-                  <div className="card-body">
-                    <canvas id="myBarChart" />
-                  </div>
+                  <p>Revenue</p>
+                  <Chart
+                    chartType="ColumnChart"
+                    loader={<div>Loading Chart ...</div>}
+                    data={data}
+                  />
                 </div>
               </div>
             </div>
