@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const AdminLayout = ({ children }) => {
   return (
@@ -15,12 +16,14 @@ const AdminLayout = ({ children }) => {
         </div>
         <ul>
           <li>
-            <a href="dashboard.html" className="active">
+            <NavLink activeClassName="active" to="admin-dashboard">
               Dashboard
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="Events.html">Events</a>
+            <NavLink activeClassName="active" to="admin-create-event">
+              Create Event
+            </NavLink>
           </li>
           <li>
             <a href="AboutUs.html">About Us</a>

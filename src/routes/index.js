@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import { DashboardScreen } from "../screens/admin";
+import { CreateEvent, DashboardScreen } from "../screens/admin";
 
 const AppRoutes = () => {
   const adminRoutePrefix = "admin";
@@ -10,6 +10,9 @@ const AppRoutes = () => {
     <Switch>
       <Route path={`/${adminRoutePrefix}-dashboard`}>
         <DashboardScreen />
+      </Route>
+      <Route path={`/${adminRoutePrefix}-create-event`}>
+        <CreateEvent />
       </Route>
       <Redirect exact to={`/${adminRoutePrefix}-dashboard`} from="/" />
     </Switch>

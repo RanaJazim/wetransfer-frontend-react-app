@@ -182,7 +182,7 @@ ul{
     position:absolute;
     top:90px;
     margin-left:20px;
-    font-size:25px;
+    /* font-size:25px; */
     color:#707070;
 }
 .page-heading .page-name{
