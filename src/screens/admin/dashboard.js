@@ -1,6 +1,6 @@
 import React from "react";
 
-import AdminLayout from "../../components/admin/admin_layout";
+import { AdminLayout } from "../../components/admin";
 
 const DashboardScreen = () => {
   return (
