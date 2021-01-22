@@ -26,6 +26,8 @@ const CreateEvent = () => {
             <input type="file" size={60} />
           </label>
           <div>
+            <br />
+
             <p>Event Name </p>
             <input type="text" className="inputs" placeholder="Event Name" />
             <p>Description of Event</p>

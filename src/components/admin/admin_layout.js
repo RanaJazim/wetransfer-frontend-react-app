@@ -26,14 +26,9 @@ const AdminLayout = ({ children }) => {
             </NavLink>
           </li>
           <li>
-            <a href="AboutUs.html">About Us</a>
-          </li>
-          <li>
-            {" "}
-            <a href="Support.html">Support</a>
-          </li>
-          <li>
-            <a href="Contacts.html">Contacts</a>
+            <NavLink activeClassName="active" to="admin-about-us">
+              About Us
+            </NavLink>
           </li>
         </ul>
       </div>
