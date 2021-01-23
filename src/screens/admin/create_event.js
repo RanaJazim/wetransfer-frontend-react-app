@@ -1,4 +1,5 @@
 import React from "react";
+
 import AdminLayout from "../../components/admin/admin_layout";
 
 const CreateEvent = () => {
@@ -62,6 +63,19 @@ const CreateEvent = () => {
             <p>Percursos</p>
             <div className="form-inline">
               <input type="text" placeholder="Intorduzir Percursos" />
+            </div>
+          </div>
+          <div className="leftline">
+            <p>Price to Apply</p>
+            <div className="form-inline">
+              <input type="text" placeholder="Selecionar Data" />
+            </div>
+          </div>
+          <div className="rightline">
+            <p>Price</p>
+            <div className="form-inline">
+              <input type="text" placeholder="Meal Price" />
+              <input type="text" placeholder="Federated Price" />
             </div>
           </div>
           <button className="left-corner">Save</button>
