@@ -1,0 +1,82 @@
+import React from "react";
+
+const Navbar = () => {
+  return (
+    <header style={{ width: "100%" }}>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">
+            <img src="/assets/images/Logo.png" width="200px" alt="logo" />
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto ms-5 mb-4 mb-lg-0">
+              <li className="nav-item">
+                <a
+                  className="nav-link ps-5 active"
+                  aria-current="page"
+                  href="AboutUs.html"
+                  style={{ color: "white" }}
+                >
+                  <h2>About us</h2>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link ps-5"
+                  aria-current="page"
+                  href="Events.html"
+                  style={{ color: "white" }}
+                >
+                  <h2>Events</h2>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link ps-5"
+                  aria-current="page"
+                  href="Inscriptions.html"
+                  style={{ color: "white" }}
+                >
+                  <h2>Inscriptions</h2>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link ps-5"
+                  aria-current="page"
+                  href="#"
+                  style={{ color: "white" }}
+                >
+                  <h2>Contacts</h2>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link ps-5 display-6"
+                  aria-current="page"
+                  href="#"
+                  style={{ color: "white" }}
+                >
+                  <i className="fa fa-lock" aria-hidden="true" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default Navbar;

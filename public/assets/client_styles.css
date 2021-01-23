@@ -1,0 +1,83 @@
+body {
+  margin: 0 !important;
+  padding: 0;
+  overflow-x: hidden;
+}
+.bg-success {
+  background: #2c8850 !important;
+  color: white !important;
+}
+
+/* The device with borders */
+.smartphone {
+  position: relative;
+  width: 280px;
+  height: 480px;
+  margin: auto;
+  border: 16px black solid;
+  border-top-width: 60px;
+  border-bottom-width: 60px;
+  border-radius: 36px;
+}
+
+/* The horizontal line on the top of the device */
+.smartphone:before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 10px;
+}
+
+/* The circle on the bottom of the device */
+.smartphone:after {
+  content: "";
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  bottom: -65px;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 50%;
+}
+
+/* The screen (or content) of the device */
+.smartphone .content {
+  width: 250px;
+  height: 380px;
+  background: white;
+}
+
+.active {
+  border-bottom: 1px solid #fff;
+}
+button {
+  border-radius: 5px !important;
+}
+
+.back {
+  background: #c1dbcc;
+  width: 300px;
+  height: 420px;
+  padding: 20px;
+  border-radius: 5px;
+}
+.form-control:focus {
+  border-color: #2c8850;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.has-error .form-control:focus {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #2c8850 !important;
+}
