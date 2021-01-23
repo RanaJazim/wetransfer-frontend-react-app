@@ -31,8 +31,8 @@ body {
   box-shadow: 0 0 2px;
 }
 i {
-  position: absolute;
-  right: 20px;
+  /* position: absolute;
+  right: 20px; */
 }
 .icon {
   padding: 15px;
