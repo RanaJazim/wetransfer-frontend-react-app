@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 import { ClientLayout } from "../../components/client";
 
@@ -36,11 +37,11 @@ const EventScreen = () => {
               <div className="back">
                 <img src="icons/CARTAZFINAL.jpg" width="250px" height="350px" />
                 <div className="float-center ms-0">
-                  <a href="EventSignUp.html">
+                  <Link to="/event-register-step-one">
                     <button className="btn btn-success m-2" type="button">
                       Sign Up
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

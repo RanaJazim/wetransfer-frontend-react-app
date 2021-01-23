@@ -2,7 +2,11 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import { AboutUsScreen, CreateEvent, DashboardScreen } from "../screens/admin";
-import { AboutUsClientScreen, EventScreen } from "../screens/client";
+import {
+  AboutUsClientScreen,
+  EventRegisterStepOneScreen,
+  EventScreen,
+} from "../screens/client";
 
 const AppRoutes = () => {
   const adminRoutePrefix = "admin";
@@ -15,6 +19,10 @@ const AppRoutes = () => {
       <Route path="/events">
         <EventScreen />
       </Route>
+      <Route path="/event-register-step-one">
+        <EventRegisterStepOneScreen />
+      </Route>
+
       <Route path={`/${adminRoutePrefix}-dashboard`}>
         <DashboardScreen />
       </Route>
@@ -30,17 +38,3 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
-
-function ClientRoutes() {
-  return (
-    <>
-      <Route path="/about-us">
-        <AboutUsClientScreen />
-      </Route>
-    </>
-  );
-}
-
-function AdminRoutes() {
-  return <></>;
-}
