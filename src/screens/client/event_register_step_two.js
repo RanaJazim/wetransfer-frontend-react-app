@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { ClientLayout } from "../../components/client";
 
@@ -48,9 +49,9 @@ const EventRegisterStepTwoScreen = () => {
               Cancel
             </button>
           </a>
-          <a href="ConfirmPayment.html">
+          <Link to="/event-register-step-three">
             <button className="btn btn-success p-4 pt-1 pb-2">Pay</button>
-          </a>
+          </Link>
         </div>
       </main>
     </ClientLayout>
