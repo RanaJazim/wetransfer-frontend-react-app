@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { ClientLayout } from "../../components/client";
 
@@ -303,9 +304,11 @@ const EventRegisterStepOneScreen = () => {
           </div>
           <div className="float-end">
             <div className="col-auto">
-              <button type="submit" className="btn btn-success float-end">
-                Continue
-              </button>
+              <Link to="/event-register-step-two">
+                <button type="submit" className="btn btn-success float-end">
+                  Continue
+                </button>
+              </Link>
             </div>
           </div>
         </form>

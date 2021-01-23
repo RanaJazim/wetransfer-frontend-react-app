@@ -6,6 +6,7 @@ import {
   AboutUsClientScreen,
   EventRegisterStepOneScreen,
   EventScreen,
+  EventRegisterStepTwoScreen,
 } from "../screens/client";
 
 const AppRoutes = () => {
@@ -21,6 +22,9 @@ const AppRoutes = () => {
       </Route>
       <Route path="/event-register-step-one">
         <EventRegisterStepOneScreen />
+      </Route>
+      <Route path="/event-register-step-two">
+        <EventRegisterStepTwoScreen />
       </Route>
 
       <Route path={`/${adminRoutePrefix}-dashboard`}>
