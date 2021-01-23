@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -49,14 +49,13 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link ps-5 display-6"
-                  aria-current="page"
-                  href="#"
+                <Link
+                  to="/login"
+                  className="nav-link ps-5 mt-2"
                   style={{ color: "white" }}
                 >
-                  <i className="fa fa-lock" aria-hidden="true" />
-                </a>
+                  <i className="fa fa-lock" aria-hidden="true" style={{ fontSize: 20}} />
+                </Link>
               </li>
             </ul>
           </div>
