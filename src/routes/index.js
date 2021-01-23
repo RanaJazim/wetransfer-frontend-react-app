@@ -4,10 +4,20 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { AboutUsScreen, CreateEvent, DashboardScreen } from "../screens/admin";
 
 const AppRoutes = () => {
+  return (
+    <Switch>
+      <AdminRoutes />
+    </Switch>
+  );
+};
+
+export default AppRoutes;
+
+function AdminRoutes() {
   const adminRoutePrefix = "admin";
 
   return (
-    <Switch>
+    <React.Fragment>
       <Route path={`/${adminRoutePrefix}-dashboard`}>
         <DashboardScreen />
       </Route>
@@ -18,8 +28,6 @@ const AppRoutes = () => {
         <AboutUsScreen />
       </Route>
       <Redirect exact to={`/${adminRoutePrefix}-dashboard`} from="/" />
-    </Switch>
+    </React.Fragment>
   );
-};
-
-export default AppRoutes;
+}
