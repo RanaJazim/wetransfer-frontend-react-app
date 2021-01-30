@@ -11,7 +11,9 @@
     "react-google-charts": "^3.0.15",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "yup": "^0.29.3",
+    "formik": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
