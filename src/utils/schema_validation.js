@@ -14,3 +14,9 @@ export const createEventSchema = Yup.object({
   federatedPrice: Yup.number().required(),
   mealPrice: Yup.number().required(),
 });
+
+export const createAboutSchema = Yup.object({
+  image: Yup.mixed().required(),
+  title: Yup.string().required(),
+  description: Yup.string().required(),
+});

@@ -1,1 +1,1 @@
-export { createEventSchema } from "./schema_validation";
+export { createEventSchema, createAboutSchema } from "./schema_validation";
