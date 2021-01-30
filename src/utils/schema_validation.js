@@ -22,6 +22,7 @@ export const createAboutSchema = Yup.object({
 });
 
 export const registerEventSchema = Yup.object({
+  name: Yup.string().required(),
   email: Yup.string().email().required(),
   dateOfBirth: Yup.date().required(),
   gender: Yup.string().required(),
@@ -31,6 +32,7 @@ export const registerEventSchema = Yup.object({
   floor: Yup.string().required(),
   zipCode: Yup.string().required(),
   nif: Yup.string().required(),
+  teamName: Yup.string().required(),
   category: Yup.string().required(),
   selectedEvent: Yup.string().required(),
   companions: Yup.number().required(),
