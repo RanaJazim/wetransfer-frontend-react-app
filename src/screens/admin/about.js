@@ -37,18 +37,23 @@ const AboutUsScreen = () => {
               <label>
                 {" "}
                 Choose File
-                <input type="file" size={60} />
+                <AppField field="image" type="file" size={60} />
+                <AppError field="image" />
               </label>
               <p>Title</p>
-              <input type="text" className="inputs" placeholder="Titulo" />
+              <AppField field="title" className="inputs" placeholder="Titulo" />
+              <AppError field="title" />
+
               <p>Information about</p>
-              <input
+
+              <AppField
+                field="description"
                 className="input2 inputs"
-                type="text"
                 placeholder="Enter Information"
               />
+              <AppError field="description" />
               <br />
-              <button>Save</button>
+              <button type="submit">Save</button>
               <br />
             </div>
           </div>
