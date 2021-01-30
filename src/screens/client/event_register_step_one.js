@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import { Field } from "formik";
 
 import { ClientLayout } from "../../components/client";
 import { AppForm, AppField, AppError } from "../../components/app-form";
@@ -134,12 +135,18 @@ function RegisterForm({ onSubmit, formValues }) {
               style={{ width: "36px" }}
             />
           </label>
-          <select id="inputState" className="form-select">
+          {/* <select id="inputState" className="form-select">
             <option selected>Gender</option>
             <option>Male</option>
             <option>Femmale</option>
             <option>Not Specified</option>
-          </select>
+          </select> */}
+          <Field name="gender" as="select" className="form-select">
+            <option>Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Femmale</option>
+          </Field>
+          <AppError field="gender" />
         </div>
         <div className="col-md-3">
           <label htmlFor="inputPhone" className="form-label">
@@ -318,12 +325,19 @@ function RegisterForm({ onSubmit, formValues }) {
               <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
             </svg>
           </label>
-          <select id="inputCategory" className="form-select">
-            <option selected>Category</option>
+          {/* <select id="inputCategory" className="form-select">
+            <option>Category</option>
             <option>Master 20</option>
             <option>Master 30</option>
             <option>Master 40</option>
-          </select>
+          </select> */}
+          <Field name="category" as="select" className="form-select">
+            <option>Category</option>
+            <option>Master 20</option>
+            <option>Master 30</option>
+            <option>Master 40</option>
+          </Field>
+          <AppError field="category" />
         </div>
         <div className="row mt-5">
           <div className="col-xl-2">
@@ -395,12 +409,19 @@ function RegisterForm({ onSubmit, formValues }) {
           <AppError field="issue" />
         </div>
         <div className="col-md-4 mt-5">
-          <select id="inputCompanionNumber" className="form-select">
-            <option selected>Number of Companions</option>
+          {/* <select id="inputCompanionNumber" className="form-select">
+            <option>Number of Companions</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
-          </select>
+          </select> */}
+          <Field name="companions" as="select" className="form-select">
+            <option>Number of Companions</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </Field>
+          <AppError field="companions" />
         </div>
         <div className="float-end">
           <div className="col-auto">
