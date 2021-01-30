@@ -5,7 +5,7 @@ const AppError = ({ field }) => {
   const { errors, touched } = useFormikContext();
 
   return touched[field] && errors[field] ? (
-    <div style={{ color: "red" }}>{errors[field]}</div>
+    <p style={{ color: "red" }}>{errors[field]}</p>
   ) : null;
 };
 
