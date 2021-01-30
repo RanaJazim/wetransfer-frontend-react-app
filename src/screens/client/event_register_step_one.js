@@ -56,12 +56,6 @@ function RegisterForm({ onSubmit, formValues }) {
               />
             </svg>
           </label>
-          {/* <input
-            type="text"
-            className="form-control"
-            id="inputName"
-            placeholder="Name"
-          /> */}
           <AppField
             field="name"
             className="form-control"
@@ -83,12 +77,6 @@ function RegisterForm({ onSubmit, formValues }) {
               <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
             </svg>
           </label>
-          {/* <input
-            type="email"
-            className="form-control"
-            id="inputEmail4"
-            placeholder="Email"
-          /> */}
           <AppField
             field="email"
             type="email"
@@ -112,12 +100,6 @@ function RegisterForm({ onSubmit, formValues }) {
               <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
             </svg>
           </label>
-          {/* <input
-            type="date"
-            className="form-control"
-            id="inputBirthday"
-            placeholder="Birth date"
-          /> */}
           <AppField
             field="dateOfBirth"
             type="date"
@@ -135,16 +117,10 @@ function RegisterForm({ onSubmit, formValues }) {
               style={{ width: "36px" }}
             />
           </label>
-          {/* <select id="inputState" className="form-select">
-            <option selected>Gender</option>
-            <option>Male</option>
-            <option>Femmale</option>
-            <option>Not Specified</option>
-          </select> */}
           <Field name="gender" as="select" className="form-select">
-            <option>Gender</option>
+            <option value="">Gender</option>
             <option value="male">Male</option>
-            <option value="female">Femmale</option>
+            <option value="female">Female</option>
           </Field>
           <AppError field="gender" />
         </div>
@@ -165,12 +141,6 @@ function RegisterForm({ onSubmit, formValues }) {
               />
             </svg>
           </label>
-          {/* <input
-            type="text"
-            className="form-control"
-            id="inputPhone"
-            placeholder="Phone"
-          /> */}
           <AppField
             field="phone"
             type="number"
@@ -194,12 +164,6 @@ function RegisterForm({ onSubmit, formValues }) {
               <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
             </svg>
           </label>
-          {/* <input
-            type="text"
-            className="form-control"
-            id="inputAddress"
-            placeholder="Address"
-          /> */}
           <AppField
             field="address"
             className="form-control"
@@ -210,12 +174,6 @@ function RegisterForm({ onSubmit, formValues }) {
         </div>
         <div className="col-md-1">
           <br />
-          {/* <input
-            type="text"
-            className="form-control mt-2"
-            id="inputdoor"
-            placeholder="door"
-          /> */}
           <AppField
             field="door"
             className="form-control mt-2"
@@ -226,12 +184,6 @@ function RegisterForm({ onSubmit, formValues }) {
         </div>
         <div className="col-md-1">
           <br />
-          {/* <input
-            type="text"
-            className="form-control mt-2"
-            id="inputfloor"
-            placeholder="floor"
-          /> */}
           <AppField
             field="floor"
             className="form-control mt-2"
@@ -242,12 +194,6 @@ function RegisterForm({ onSubmit, formValues }) {
         </div>
         <div className="col-md-2">
           <br />
-          {/* <input
-            type="text"
-            className="form-control mt-2"
-            id="inputZipcode"
-            placeholder="Zip code"
-          /> */}
           <AppField
             field="zipCode"
             className="form-control mt-2"
@@ -270,12 +216,6 @@ function RegisterForm({ onSubmit, formValues }) {
               <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z" />
             </svg>
           </label>
-          {/* <input
-            type="text"
-            className="form-control"
-            id="inputNIF"
-            placeholder="NIF"
-          /> */}
           <AppField
             field="nif"
             className="form-control"
@@ -297,12 +237,6 @@ function RegisterForm({ onSubmit, formValues }) {
               <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
             </svg>
           </label>
-          {/* <input
-            type="text"
-            className="form-control"
-            id="inputTeam"
-            placeholder="Team name"
-          /> */}
           <AppField
             field="teamName"
             className="form-control"
@@ -325,17 +259,11 @@ function RegisterForm({ onSubmit, formValues }) {
               <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
             </svg>
           </label>
-          {/* <select id="inputCategory" className="form-select">
-            <option>Category</option>
-            <option>Master 20</option>
-            <option>Master 30</option>
-            <option>Master 40</option>
-          </select> */}
           <Field name="category" as="select" className="form-select">
-            <option>Category</option>
-            <option>Master 20</option>
-            <option>Master 30</option>
-            <option>Master 40</option>
+            <option value="">Category</option>
+            <option value="master 20">Master 20</option>
+            <option value="master 30">Master 30</option>
+            <option value="master 40">Master 40</option>
           </Field>
           <AppError field="category" />
         </div>
@@ -343,10 +271,11 @@ function RegisterForm({ onSubmit, formValues }) {
           <div className="col-xl-2">
             <div className="form-check-inline">
               <label className="form-check-label">
-                <input
+                <Field
                   type="checkbox"
+                  name="selectedEvent"
                   className="form-check-input"
-                  defaultValue
+                  value="Federated"
                 />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -365,10 +294,11 @@ function RegisterForm({ onSubmit, formValues }) {
           <div className="col-xl-2">
             <div className="form-check-inline">
               <label className="form-check-label">
-                <input
+                <Field
                   type="checkbox"
+                  name="selectedEvent"
                   className="form-check-input"
-                  defaultValue
+                  value="Meal"
                 />
                 <i
                   className="fa fa-cutlery"
@@ -381,10 +311,11 @@ function RegisterForm({ onSubmit, formValues }) {
           <div className="col-xl-2">
             <div className="form-check-inline">
               <label className="form-check-label">
-                <input
+                <Field
                   type="checkbox"
+                  name="selectedEvent"
                   className="form-check-input"
-                  defaultValue
+                  value="Companion"
                 />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -404,22 +335,15 @@ function RegisterForm({ onSubmit, formValues }) {
 
         <div className="col-xl-3">
           <label className="form-label">Tm algyma algeria? Informato</label>
-          {/* <input type="text" className="form-control p-5" /> */}
           <AppField field="issue" className="form-control p-5" />
           <AppError field="issue" />
         </div>
         <div className="col-md-4 mt-5">
-          {/* <select id="inputCompanionNumber" className="form-select">
-            <option>Number of Companions</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-          </select> */}
           <Field name="companions" as="select" className="form-select">
-            <option>Number of Companions</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+            <option value="">Number of Companions</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
           </Field>
           <AppError field="companions" />
         </div>
@@ -448,7 +372,7 @@ const initialValues = {
   nif: "",
   teamName: "",
   category: "",
-  selectedEvent: "",
+  selectedEvent: [],
   companions: "",
   issue: "",
 };

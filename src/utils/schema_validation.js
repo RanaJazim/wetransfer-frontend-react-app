@@ -34,7 +34,6 @@ export const registerEventSchema = Yup.object({
   nif: Yup.string().required(),
   teamName: Yup.string().required(),
   category: Yup.string().required(),
-  selectedEvent: Yup.string().required(),
   companions: Yup.number().required(),
   issue: Yup.string().notRequired(),
 });
