@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useApi } from "../../hooks";
 import * as aboutService from "../../services/about";
@@ -6,9 +6,6 @@ import { AdminLayout, AboutForm } from "../../components/admin";
 import { ServerError } from "../../components";
 
 const AboutUsScreen = ({ isEdit, about }) => {
-  console.log(about);
-
-  const [aboutDetail, setAboutDetail] = useState(about);
   const aboutApi = useApi(
     isEdit ? aboutService.updateAboutDetails : aboutService.createAboutDetails
   );
@@ -16,8 +13,8 @@ const AboutUsScreen = ({ isEdit, about }) => {
   const handleSubmit = async (formValues) => {
     console.log("create about details", formValues);
     try {
-      const res = await aboutApi.request(formValues);
-      setAboutDetail(res.data);
+      await aboutApi.request(formValues);
+      window.location.reload();
     } catch (ex) {}
   };
 
@@ -43,7 +40,7 @@ const AboutUsScreen = ({ isEdit, about }) => {
             <AboutForm
               onSubmit={handleSubmit}
               isEdit={isEdit}
-              formValues={aboutDetail}
+              formValues={about}
             />
             <div className="my-3">
               <ServerError error={aboutApi.error} />

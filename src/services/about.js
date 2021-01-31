@@ -13,9 +13,11 @@ export function createAboutDetails(about) {
 }
 
 export function updateAboutDetails(about) {
-  return api.patch("/about/" + about.id, about, {
-    headers: { "Content-Type": "multipart/form-data; boundary=something" },
-  });
+  const config = { headers: { "Content-Type": "multipart/form-data" } };
+  let fd = new FormData();
+  setFieldsToFormData(fd, about);
+
+  return api.patch("/about/" + about.id, fd, config);
 }
 
 function setFieldsToFormData(fd, fields) {
