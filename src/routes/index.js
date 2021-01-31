@@ -53,7 +53,7 @@ const AppRoutes = () => {
       <Route path={`/${adminRoutePrefix}-events`}>
         <EventListScreen />
       </Route>
-      {/* <Redirect exact to={`/${adminRoutePrefix}-dashboard`} from="/" /> */}
+      <Redirect exact from="/" to="/about-us" />
     </Switch>
   );
 };
