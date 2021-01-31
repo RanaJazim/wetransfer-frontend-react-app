@@ -16,6 +16,11 @@ const AdminLayout = ({ children }) => {
         </div>
         <ul>
           <li>
+            <NavLink exact activeClassName="active" to="/">
+              Home
+            </NavLink>
+          </li>
+          <li>
             <NavLink activeClassName="active" to="/admin-dashboard">
               Dashboard
             </NavLink>

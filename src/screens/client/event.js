@@ -62,6 +62,9 @@ function _FutureEvents() {
           if (index % 2 === 0) return <LeftEvent event={event} />;
           return <RightEvent event={event} />;
         })}
+      {!futureEvent.isLoading &&
+        futureEvent.res &&
+        futureEvent.res.data.length === 0 && <p>No Future Event found ..</p>}
     </>
   );
 }
@@ -85,6 +88,9 @@ function _PastEvents() {
           if (index % 2 === 0) return <LeftEvent event={event} isPastEvent />;
           return <RightEvent event={event} isPastEvent />;
         })}
+      {!pastEvent.isLoading &&
+        pastEvent.res &&
+        pastEvent.res.data.length === 0 && <p>No Past Event found ..</p>}
     </>
   );
 }
@@ -207,7 +213,11 @@ function RightEvent({ event, isPastEvent = false }) {
         </div>
         <div className="col-xl-4">
           <div className="back">
-            <img src="icons/CARTAZFINAL.jpg" width="250px" height="350px" />
+            <img
+              src={`${SERVER_BASE_URL}/${event.imagePath}`}
+              width="250px"
+              height="350px"
+            />
             {!isPastEvent && (
               <Link
                 to={{ pathname: "/event-register-step-one", state: { event } }}
