@@ -4,6 +4,10 @@ export function fetchAllEvents() {
   return api.get("/event");
 }
 
+export function fetchSingleEvent(id) {
+  return api.get("/event/" + id);
+}
+
 export function createEvent(event) {
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   let fd = new FormData();

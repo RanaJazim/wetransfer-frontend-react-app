@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 import { useApi } from "../../hooks";
 import * as eventService from "../../services/event";
 import { AdminLayout } from "../../components/admin";
-import { Link } from "react-router-dom";
 
 const EventListScreen = () => {
+  const history = useHistory();
   const eventApi = useApi(eventService.fetchAllEvents);
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const EventListScreen = () => {
                     <Link
                       to={{
                         pathname: "/admin-create-event",
-                        state: { message: "event here .." },
+                        state: { eventId: event.id },
                       }}
                     >
                       <i className="fa fa-pencil" aria-hidden="true"></i>
