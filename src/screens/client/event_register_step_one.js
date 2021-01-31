@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { Field } from "formik";
 
 import { ClientLayout } from "../../components/client";
@@ -7,7 +7,16 @@ import { AppForm, AppField, AppError } from "../../components/app-form";
 import { registerEventSchema } from "../../utils/schema_validation";
 
 const EventRegisterStepOneScreen = () => {
+  const { state } = useLocation();
   const history = useHistory();
+
+  const isSubmitted = () => {
+    console.log(state.event);
+    if (new Date(state.event.applyDate) > new Date()) {
+      return true;
+    }
+    return false;
+  };
 
   const handleSubmit = ({ formValues }) => {
     console.log("registered event", formValues);
@@ -23,7 +32,7 @@ const EventRegisterStepOneScreen = () => {
           <p>Full de Form</p>
         </div>
 
-        <RegisterForm onSubmit={handleSubmit} />
+        <RegisterForm onSubmit={handleSubmit} isSubmit={isSubmitted()} />
       </main>
     </ClientLayout>
   );
@@ -31,7 +40,7 @@ const EventRegisterStepOneScreen = () => {
 
 export default EventRegisterStepOneScreen;
 
-function RegisterForm({ onSubmit, formValues }) {
+function RegisterForm({ onSubmit, formValues, isSubmit }) {
   return (
     <AppForm
       initialValues={formValues ?? initialValues}
@@ -349,9 +358,17 @@ function RegisterForm({ onSubmit, formValues }) {
         </div>
         <div className="float-end">
           <div className="col-auto">
-            <button type="submit" className="btn btn-success float-end">
-              Continue
-            </button>
+            {isSubmit && (
+              <button
+                type="submit"
+                className="btn btn-success float-end"
+              >
+                Continue
+              </button>
+            )}
+            {!isSubmit && (
+              <p>Sorry You cannot register because apply date is expired</p>
+            )}
           </div>
         </div>
       </div>
