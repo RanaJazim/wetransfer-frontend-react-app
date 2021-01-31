@@ -1,7 +1,6 @@
 import * as Yup from "yup";
 
 export const createEventSchema = Yup.object({
-  image: Yup.mixed().required(),
   title: Yup.string().required(),
   description: Yup.string().required(),
   applyDate: Yup.date().required(),

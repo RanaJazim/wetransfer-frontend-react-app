@@ -13,7 +13,7 @@ const CreateOrUpdateAbout = () => {
 
   return (
     <>
-      {fetchAbout.isLoading && <p className="spinner-border">Loading ..</p>}
+      {fetchAbout.isLoading && <p className="spinner-border"></p>}
       {!fetchAbout.isLoading && fetchAbout.res && (
         <AboutUsScreen about={fetchAbout.res.data} isEdit={true} />
       )}

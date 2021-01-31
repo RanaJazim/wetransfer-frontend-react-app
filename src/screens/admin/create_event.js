@@ -1,10 +1,15 @@
 import React from "react";
 
+import { useApi } from "../../hooks";
+import * as eventService from "../../services/event";
 import { AdminLayout, CreateEventForm } from "../../components/admin";
 
-const CreateEvent = () => {
-  const handleSubmit = ({ formValues }) => {
+const CreateEvent = ({ event }) => {
+  const eventApi = useApi(eventService.createEvent);
+
+  const handleSubmit = async (formValues) => {
     console.log("created event ", formValues);
+    eventApi.request(formValues);
   };
 
   return (
@@ -23,7 +28,9 @@ const CreateEvent = () => {
           </span>
         </div>
 
-        <CreateEventForm onSubmit={handleSubmit} />
+        <div>
+          <CreateEventForm onSubmit={handleSubmit} error={eventApi.error} />
+        </div>
       </div>
     </AdminLayout>
   );

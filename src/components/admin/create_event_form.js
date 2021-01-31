@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { AppField, AppError, AppForm } from "../app-form";
 import { createEventSchema } from "../../utils";
+import { ServerError } from "..";
 
-function CreateEventForm({ onSubmit, formValues }) {
+function CreateEventForm({ onSubmit, formValues, error }) {
+  const [file, setFile] = useState("");
+
+  const handleSubmit = ({ formValues }) => {
+    onSubmit({ ...formValues, image: file });
+  };
+
   return (
     <AppForm
       initialValues={formValues ?? initialValues}
       validationSchema={createEventSchema}
-      handleSubmit={onSubmit}
+      handleSubmit={handleSubmit}
     >
       <div className="page-heading">
         <div className="patch" />
@@ -19,7 +26,13 @@ function CreateEventForm({ onSubmit, formValues }) {
         <label>
           {" "}
           Choose File
-          <AppField field="image" type="file" size={60} />
+          <input
+            type="file"
+            name="image"
+            size={60}
+            onChange={(e) => setFile(e.target.files[0])}
+          />
+          {/* <AppField field="image" type="file" size={60} /> */}
         </label>
         <div>
           <br />
@@ -100,6 +113,9 @@ function CreateEventForm({ onSubmit, formValues }) {
         <button className="left-corner" type="submit">
           Save
         </button>
+        <div style={{ marginTop: "300px" }}>
+          <ServerError error={error} />
+        </div>
       </div>
     </AppForm>
   );
