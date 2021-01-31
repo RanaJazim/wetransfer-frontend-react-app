@@ -6,12 +6,14 @@ import { AdminLayout, AboutForm } from "../../components/admin";
 import { ServerError } from "../../components";
 
 const AboutUsScreen = ({ isEdit, about }) => {
+  console.log(about);
+
   const [aboutDetail, setAboutDetail] = useState(about);
   const aboutApi = useApi(
     isEdit ? aboutService.updateAboutDetails : aboutService.createAboutDetails
   );
 
-  const handleSubmit = async ({ formValues }) => {
+  const handleSubmit = async (formValues) => {
     console.log("create about details", formValues);
     try {
       const res = await aboutApi.request(formValues);
@@ -43,7 +45,9 @@ const AboutUsScreen = ({ isEdit, about }) => {
               isEdit={isEdit}
               formValues={aboutDetail}
             />
-            <div className="my-3"><ServerError error={aboutApi.error} /></div>
+            <div className="my-3">
+              <ServerError error={aboutApi.error} />
+            </div>
           </div>
         </div>
       )}

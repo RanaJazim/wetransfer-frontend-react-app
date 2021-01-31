@@ -6,6 +6,7 @@ const AppForm = ({
   initialValues,
   validationSchema,
   handleSubmit,
+  ...rest
 }) => {
   return (
     <Formik
@@ -16,7 +17,11 @@ const AppForm = ({
         handleSubmit({ formValues: values });
       }}
     >
-      {(props) => <form onSubmit={props.handleSubmit}>{children}</form>}
+      {(props) => (
+        <form onSubmit={props.handleSubmit} {...rest}>
+          {children}
+        </form>
+      )}
     </Formik>
   );
 };

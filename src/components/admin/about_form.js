@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { AppForm, AppField, AppError } from "../app-form";
 import { createAboutSchema, SERVER_BASE_URL } from "../../utils";
 
 function AboutForm({ onSubmit, formValues, isEdit }) {
+  const [file, setFile] = useState("");
+
   const getInitialValues = () => {
     if (!isEdit) return initialValues;
     return {
@@ -17,11 +19,16 @@ function AboutForm({ onSubmit, formValues, isEdit }) {
     return SERVER_BASE_URL + "/" + formValues.imagePath;
   };
 
+  const handleSubmit = ({ formValues }) => {
+    onSubmit({ ...formValues, image: file });
+  };
+
   return (
     <AppForm
       initialValues={getInitialValues()}
       validationSchema={createAboutSchema(isEdit)}
-      handleSubmit={onSubmit}
+      handleSubmit={handleSubmit}
+      encType="multipart/form-data"
     >
       <div className="">
         <div className="patch" />
@@ -31,18 +38,26 @@ function AboutForm({ onSubmit, formValues, isEdit }) {
           <label>
             {" "}
             Choose File
-            <AppField field="image" type="file" size={60} />
-            <AppError field="image" />
+            {/* <AppField field="image" type="file" accept="image/*" size={60} /> */}
+            <input
+              type="file"
+              name="image"
+              size={60}
+              onChange={(e) => setFile(e.target.files[0])}
+            />
+            {/* <AppError field="image" /> */}
           </label>
 
-          <div className="mt-3 mb-5">
-            <img
-              src={getImage()}
-              width="100"
-              height="100"
-              className="card p-2"
-            />
-          </div>
+          {isEdit && (
+            <div className="mt-3 mb-5">
+              <img
+                src={getImage()}
+                width="100"
+                height="100"
+                className="card p-2"
+              />
+            </div>
+          )}
 
           <p>Title</p>
           <AppField field="title" className="inputs" placeholder="Titulo" />

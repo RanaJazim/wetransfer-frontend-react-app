@@ -17,7 +17,7 @@ export const createEventSchema = Yup.object({
 
 export function createAboutSchema(isImageExist = false) {
   return Yup.object({
-    image: isImageExist ? Yup.mixed().notRequired() : Yup.mixed().required(),
+    // image: isImageExist ? Yup.mixed().notRequired() : Yup.mixed().required(),
     title: Yup.string().required(),
     description: Yup.string().required(),
   });
