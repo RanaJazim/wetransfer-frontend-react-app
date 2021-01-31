@@ -4,6 +4,14 @@ export function fetchAllEvents() {
   return api.get("/event");
 }
 
+export function futureEvents() {
+  return api.get("/event/future");
+}
+
+export function pastEvents() {
+  return api.get("/event/past");
+}
+
 export function fetchSingleEvent(id) {
   return api.get("/event/" + id);
 }
