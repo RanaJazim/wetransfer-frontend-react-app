@@ -1,10 +1,12 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 import { useApi } from "../../hooks";
 import * as eventService from "../../services/event";
 import { AdminLayout, CreateEventForm } from "../../components/admin";
 
-const CreateEvent = ({ event }) => {
+const CreateEvent = () => {
+  const location = useLocation();
   const eventApi = useApi(eventService.createEvent);
 
   const handleSubmit = async (formValues) => {
@@ -29,7 +31,11 @@ const CreateEvent = ({ event }) => {
         </div>
 
         <div>
-          <CreateEventForm onSubmit={handleSubmit} error={eventApi.error} />
+          <CreateEventForm
+            onSubmit={handleSubmit}
+            formValues={location.state.event}
+            error={eventApi.error}
+          />
         </div>
       </div>
     </AdminLayout>
