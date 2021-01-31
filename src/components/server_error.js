@@ -1,0 +1,25 @@
+import React from "react";
+
+const AppError = ({ error }) => {
+  if (isErrorExist(error)) {
+    if (Array.isArray(error.data.message)) {
+      return (
+        <div style={{ color: "red", border: "1px solid red" }}>
+          {error.data.message.map((err) => (
+            <p key={err}>{err}</p>
+          ))}
+        </div>
+      );
+    }
+
+    return <p style={{ color: "red" }}>{error.data.message}</p>;
+  } else {
+    return null;
+  }
+};
+
+export default AppError;
+
+function isErrorExist(error) {
+  return error && error.data;
+}

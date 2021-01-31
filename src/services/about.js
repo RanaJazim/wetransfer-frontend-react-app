@@ -7,3 +7,7 @@ export function fetchSingleAbout() {
 export function createAboutDetails(about) {
   return api.post("/about", about);
 }
+
+export function updateAboutDetails(about) {
+  return api.patch("/about/" + about.id, about);
+}

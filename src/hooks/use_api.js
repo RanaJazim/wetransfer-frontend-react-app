@@ -14,6 +14,7 @@ export default function useApi(apiFunc, { isThrowErr = false } = {}) {
       const res = await apiFunc(...params);
       setIsLoading(false);
       setData(res);
+      setError();
       nProgress.done();
       console.log(res);
       return res;
@@ -21,6 +22,7 @@ export default function useApi(apiFunc, { isThrowErr = false } = {}) {
       console.log("Server side error", err.response);
       setIsLoading(false);
       setError(err.response);
+      setData();
       nProgress.done();
 
       if (isThrowErr) {

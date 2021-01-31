@@ -23,7 +23,7 @@ function AboutForm({ onSubmit, formValues, isEdit }) {
       validationSchema={createAboutSchema(isEdit)}
       handleSubmit={onSubmit}
     >
-      <div className="page-heading">
+      <div className="">
         <div className="patch" />
         <span className="page-name">About Us</span>
         <div>
@@ -36,7 +36,12 @@ function AboutForm({ onSubmit, formValues, isEdit }) {
           </label>
 
           <div className="mt-3 mb-5">
-            <img src={getImage()} width="100" height="100" className="card p-2" />
+            <img
+              src={getImage()}
+              width="100"
+              height="100"
+              className="card p-2"
+            />
           </div>
 
           <p>Title</p>
