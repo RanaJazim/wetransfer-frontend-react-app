@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import { useApi } from "../../hooks";
 import * as eventService from "../../services/event";
@@ -7,9 +7,13 @@ import { AdminLayout, CreateEventForm } from "../../components/admin";
 
 const CreateEvent = () => {
   const [event, setEvent] = useState();
+  const history = useHistory();
   const location = useLocation();
   const eventId = location.state ? location.state.eventId : null;
-  const eventApi = useApi(eventService.createEvent);
+  const eventApi = useApi(
+    eventId ? eventService.updateEvent : eventService.createEvent,
+    { isThrowErr: true }
+  );
   const singleEventApi = useApi(eventService.fetchSingleEvent);
 
   useEffect(() => {
@@ -20,7 +24,11 @@ const CreateEvent = () => {
 
   const handleSubmit = async (formValues) => {
     console.log("created event ", formValues);
-    eventApi.request(formValues);
+
+    try {
+      await eventApi.request(formValues);
+      history.push("/admin-events");
+    } catch (ex) {}
   };
 
   return (

@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 
 import { AppField, AppError, AppForm } from "../app-form";
-import { createEventSchema } from "../../utils";
+import { createEventSchema, SERVER_BASE_URL } from "../../utils";
 import { ServerError } from "..";
 
 function CreateEventForm({ onSubmit, formValues, error }) {
   const [file, setFile] = useState("");
+
+  const getImage = () => {
+    return SERVER_BASE_URL + "/" + formValues.imagePath;
+  };
 
   const handleSubmit = ({ formValues }) => {
     onSubmit({ ...formValues, image: file });
@@ -34,6 +38,18 @@ function CreateEventForm({ onSubmit, formValues, error }) {
           />
           {/* <AppField field="image" type="file" size={60} /> */}
         </label>
+
+        {formValues && (
+          <div className="mt-3 mb-5">
+            <img
+              src={getImage()}
+              width="100"
+              height="100"
+              className="card p-2"
+            />
+          </div>
+        )}
+
         <div>
           <br />
 
