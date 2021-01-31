@@ -10,6 +10,7 @@ import {
   EventRegisterStepThreeScreen,
   LoginScreen,
 } from "../screens/client";
+import { CreateOrUpdateAbout } from "../components/admin";
 
 const AppRoutes = () => {
   const adminRoutePrefix = "admin";
@@ -42,7 +43,7 @@ const AppRoutes = () => {
         <CreateEvent />
       </Route>
       <Route path={`/${adminRoutePrefix}-about-us`}>
-        <AboutUsScreen />
+        <CreateOrUpdateAbout />
       </Route>
       {/* <Redirect exact to={`/${adminRoutePrefix}-dashboard`} from="/" /> */}
     </Switch>

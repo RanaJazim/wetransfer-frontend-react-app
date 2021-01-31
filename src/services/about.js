@@ -1,5 +1,9 @@
-import axios from "axios";
+import api from "./api";
+
+export function fetchSingleAbout() {
+  return api.get("/about/single");
+}
 
 export function createAboutDetails(about) {
-  return axios.post("/about", about);
+  return api.post("/about", about);
 }

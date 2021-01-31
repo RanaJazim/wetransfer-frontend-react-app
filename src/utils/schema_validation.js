@@ -15,11 +15,13 @@ export const createEventSchema = Yup.object({
   mealPrice: Yup.number().required(),
 });
 
-export const createAboutSchema = Yup.object({
-  image: Yup.mixed().required(),
-  title: Yup.string().required(),
-  description: Yup.string().required(),
-});
+export function createAboutSchema(isImageExist = false) {
+  return Yup.object({
+    image: isImageExist ? Yup.mixed().notRequired() : Yup.mixed().required(),
+    title: Yup.string().required(),
+    description: Yup.string().required(),
+  });
+}
 
 export const registerEventSchema = Yup.object({
   name: Yup.string().required(),

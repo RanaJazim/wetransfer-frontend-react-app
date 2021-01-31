@@ -1,8 +1,12 @@
 import React from "react";
 
+import { useApi } from "../../hooks";
+import * as aboutService from "../../services/about";
 import { AdminLayout, AboutForm } from "../../components/admin";
 
-const AboutUsScreen = () => {
+const AboutUsScreen = ({ isEdit, about }) => {
+  const createAbout = useApi(aboutService.createAboutDetails);
+
   const handleSubmit = ({ formValues }) => {
     console.log("create about details", formValues);
   };
@@ -23,7 +27,7 @@ const AboutUsScreen = () => {
           </span>
         </div>
 
-        <AboutForm onSubmit={handleSubmit} />
+        <AboutForm onSubmit={handleSubmit} isEdit={isEdit} formValues={about} />
       </div>
     </AdminLayout>
   );

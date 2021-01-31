@@ -1,13 +1,26 @@
 import React from "react";
 
 import { AppForm, AppField, AppError } from "../app-form";
-import { createAboutSchema } from "../../utils";
+import { createAboutSchema, SERVER_BASE_URL } from "../../utils";
 
-function AboutForm({ onSubmit, formValues }) {
+function AboutForm({ onSubmit, formValues, isEdit }) {
+  const getInitialValues = () => {
+    if (!isEdit) return initialValues;
+    return {
+      ...formValues,
+      image: "",
+    };
+  };
+
+  const getImage = () => {
+    if (!isEdit) return initialValues.image;
+    return SERVER_BASE_URL + "/" + formValues.imagePath;
+  };
+
   return (
     <AppForm
-      initialValues={formValues ?? initialValues}
-      validationSchema={createAboutSchema}
+      initialValues={getInitialValues()}
+      validationSchema={createAboutSchema(isEdit)}
       handleSubmit={onSubmit}
     >
       <div className="page-heading">
@@ -21,6 +34,11 @@ function AboutForm({ onSubmit, formValues }) {
             <AppField field="image" type="file" size={60} />
             <AppError field="image" />
           </label>
+
+          <div className="mt-3 mb-5">
+            <img src={getImage()} width="100" height="100" className="card p-2" />
+          </div>
+
           <p>Title</p>
           <AppField field="title" className="inputs" placeholder="Titulo" />
           <AppError field="title" />
@@ -34,7 +52,7 @@ function AboutForm({ onSubmit, formValues }) {
           />
           <AppError field="description" />
           <br />
-          <button type="submit">Save</button>
+          <button type="submit">{isEdit ? "Update" : "Save"}</button>
           <br />
         </div>
       </div>

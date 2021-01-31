@@ -14,12 +14,11 @@ export default function useApi(apiFunc, { isThrowErr = false } = {}) {
       const res = await apiFunc(...params);
       setIsLoading(false);
       setData(res);
-      setError({});
       nProgress.done();
       console.log(res);
       return res;
     } catch (err) {
-      console.log(err.response);
+      console.log("Server side error", err.response);
       setIsLoading(false);
       setError(err.response);
       nProgress.done();
