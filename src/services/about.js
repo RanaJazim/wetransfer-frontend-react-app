@@ -7,9 +7,7 @@ export function fetchSingleAbout() {
 export function createAboutDetails(about) {
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   let fd = new FormData();
-  fd.append("image", about.image);
-  fd.append('title', about.title);
-  fd.append('description', about.description);
+  setFieldsToFormData(fd, about);
 
   return api.post("/about", fd, config);
 }
@@ -18,4 +16,10 @@ export function updateAboutDetails(about) {
   return api.patch("/about/" + about.id, about, {
     headers: { "Content-Type": "multipart/form-data; boundary=something" },
   });
+}
+
+function setFieldsToFormData(fd, fields) {
+  for (const key in fields) {
+    fd.append(key, fields[key]);
+  }
 }
