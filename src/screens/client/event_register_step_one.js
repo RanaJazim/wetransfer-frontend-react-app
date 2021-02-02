@@ -1,14 +1,18 @@
 import React from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { Field } from "formik";
 
+import { useApi } from "../../hooks";
+import * as eventService from "../../services/event";
 import { ClientLayout } from "../../components/client";
 import { AppForm, AppField, AppError } from "../../components/app-form";
 import { registerEventSchema } from "../../utils/schema_validation";
+import { ServerError } from "../../components";
 
 const EventRegisterStepOneScreen = () => {
   const { state } = useLocation();
   const history = useHistory();
+  const regEvent = useApi(eventService.registerToEvent, { isThrowErr: true });
 
   const isSubmitted = () => {
     console.log(state.event);
@@ -20,18 +24,23 @@ const EventRegisterStepOneScreen = () => {
 
   const handleSubmit = ({ formValues }) => {
     let selectedEvent = "";
-
     for (const event of formValues.selectedEvent) {
       selectedEvent = selectedEvent + event + ",";
     }
-
-    // formValues.selectedEvent.foreach((event) => {
-    //   selectedEvent = selectedEvent + event + ",";
-    // });
-    const formFields = { ...formValues, selectedEvent };
+    const formFields = {
+      ...formValues,
+      selectedEvent,
+      eventId: state.event.id,
+    };
 
     console.log("registered event", formFields);
-    history.push("/event-register-step-two");
+
+    regEvent.request(formFields).then((res) => {
+      history.replace({
+        pathname: "/event-register-step-two",
+        state: { summary: res.data },
+      });
+    });
   };
 
   return (
@@ -43,6 +52,9 @@ const EventRegisterStepOneScreen = () => {
           <p>Full de Form</p>
         </div>
 
+        <div className="my-3">
+          <ServerError error={regEvent.error} />
+        </div>
         <RegisterForm onSubmit={handleSubmit} />
       </main>
     </ClientLayout>

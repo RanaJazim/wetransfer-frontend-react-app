@@ -1,9 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { ClientLayout } from "../../components/client";
+import { SERVER_BASE_URL } from "../../utils";
 
 const EventRegisterStepTwoScreen = () => {
+  const { state } = useLocation();
+
   return (
     <ClientLayout isFooter={false}>
       <main className="m-4 ps-3">
@@ -14,33 +17,44 @@ const EventRegisterStepTwoScreen = () => {
         </div>
         <div className="row mb-5">
           <div className="col-xl-6">
-            <div className="row mt-5">
+            <div className="row mt-3">
               <div className="col-xl-3">
-                <h6>Cras tristique</h6>
+                <h6>Meal Price</h6>
               </div>
               <div className="col-xl-3">
-                <h6>$12</h6>
-              </div>
-            </div>
-            <div className="row mt-5">
-              <div className="col-xl-3">
-                <h6>Cras tristique</h6>
-              </div>
-              <div className="col-xl-3">
-                <h6>$12</h6>
+                <h6>${state.summary.mealPrice}</h6>
               </div>
             </div>
-            <div className="row mt-5">
+            <div className="row mt-3">
+              <div className="col-xl-3">
+                <h6>Federated Price</h6>
+              </div>
+              <div className="col-xl-3">
+                <h6>${state.summary.federatedPrice}</h6>
+              </div>
+            </div>
+            <div className="row mt-3">
+              <div className="col-xl-3">
+                <h6>Event Registration Price</h6>
+              </div>
+              <div className="col-xl-3">
+                <h6>${state.summary.eventRegPrice}</h6>
+              </div>
+            </div>
+            <div className="row mt-3">
               <div className="col-xl-3">
                 <h6>Total</h6>
               </div>
               <div className="col-xl-3">
-                <h6>$24</h6>
+                <h6>${state.summary.totalPrice}</h6>
               </div>
             </div>
           </div>
           <div className="col-xl-6">
-            <img src="/assets/images/event.jpg" height="400px" />
+            <img
+              src={`${SERVER_BASE_URL}/${state.summary.eventImage}`}
+              height="400px"
+            />
           </div>
         </div>
         <div className="float-end mb-5">

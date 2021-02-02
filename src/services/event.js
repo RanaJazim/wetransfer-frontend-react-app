@@ -32,6 +32,10 @@ export function updateEvent(event) {
   return api.patch("/event/" + event.id, fd, config);
 }
 
+export function registerToEvent(userDetail) {
+  return api.post("/event-register", userDetail);
+}
+
 function setFieldsToFormData(fd, fields) {
   for (const key in fields) {
     fd.append(key, fields[key]);
