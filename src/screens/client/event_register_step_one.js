@@ -19,7 +19,18 @@ const EventRegisterStepOneScreen = () => {
   };
 
   const handleSubmit = ({ formValues }) => {
-    console.log("registered event", formValues);
+    let selectedEvent = "";
+
+    for (const event of formValues.selectedEvent) {
+      selectedEvent = selectedEvent + event + ",";
+    }
+
+    // formValues.selectedEvent.foreach((event) => {
+    //   selectedEvent = selectedEvent + event + ",";
+    // });
+    const formFields = { ...formValues, selectedEvent };
+
+    console.log("registered event", formFields);
     history.push("/event-register-step-two");
   };
 
@@ -32,7 +43,7 @@ const EventRegisterStepOneScreen = () => {
           <p>Full de Form</p>
         </div>
 
-        <RegisterForm onSubmit={handleSubmit} isSubmit={isSubmitted()} />
+        <RegisterForm onSubmit={handleSubmit} />
       </main>
     </ClientLayout>
   );
@@ -358,17 +369,14 @@ function RegisterForm({ onSubmit, formValues, isSubmit }) {
         </div>
         <div className="float-end">
           <div className="col-auto">
-            {isSubmit && (
-              <button
-                type="submit"
-                className="btn btn-success float-end"
-              >
-                Continue
-              </button>
+            <button type="submit" className="btn btn-success float-end">
+              Continue
+            </button>
+            {/* {isSubmit && (
             )}
             {!isSubmit && (
               <p>Sorry You cannot register because apply date is expired</p>
-            )}
+            )} */}
           </div>
         </div>
       </div>
