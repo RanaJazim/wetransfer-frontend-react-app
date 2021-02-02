@@ -29,24 +29,21 @@ const Navbar = () => {
                 <AppNavLink title="Events" route="/events" />
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link ps-5"
-                  aria-current="page"
-                  href="Inscriptions.html"
-                  style={{ color: "white" }}
-                >
-                  <h2>Inscriptions</h2>
-                </a>
+                <AppNavLink title="Inscriptions" route="/" />
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link ps-5"
-                  aria-current="page"
-                  href="#"
+                <AppNavLink title="Contacts" route="/" />
+              </li>
+              
+              
+              <li className="nav-item">
+                <Link
+                  to="/login"
+                  className="nav-link ps-5 mt-2"
                   style={{ color: "white" }}
                 >
-                  <h2>Contacts</h2>
-                </a>
+                  <i className="fa fa-lock" aria-hidden="true" style={{ fontSize: 20}} />
+                </Link>
               </li>
               <li className="nav-item">
                 <Link
@@ -74,8 +71,9 @@ function AppNavLink({ title, route }) {
       style={{ color: "white" }}
       activeClassName="active"
       to={route}
+      exact
     >
-      <h2>{title}</h2>
+      <h4>{title}</h4>
     </NavLink>
   );
 }
