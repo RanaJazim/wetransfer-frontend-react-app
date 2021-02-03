@@ -45,30 +45,39 @@ export default DashboardScreen;
 
 function RegistrationSummary() {
   const [ageSummary, setAgeSummary] = useState([]);
+  const [genderSummary, setGenderSummary] = useState([]);
   const eventApi = useApi(eventService.registrationSummaryForCurrentEvent);
 
   useEffect(() => {
     eventApi.request().then((res) => {
-      let ageSummary = [];
-      ageSummary.push(["Age", "No. of People"]);
+      const { ageSummary, male, female } = res.data;
 
-      for (const rec of res.data.ageSummary) {
-        for (const key in rec) {
-          ageSummary.push([key, rec[key]]);
-        }
-      }
-
-      setAgeSummary(ageSummary);
+      addDataToAgeSummary(ageSummary);
+      addDataToGenderSummary(male, female);
     });
   }, []);
 
-  const data = [
-    ["Age", "No. of People"],
-    ["<25", 2],
-    ["25-35", 1],
-    ["36-50", 5],
-    [">50", 0],
-  ];
+  const addDataToAgeSummary = (summary) => {
+    let ageSummary = [];
+    ageSummary.push(["Age", "No. of People"]);
+
+    for (const rec of summary) {
+      for (const key in rec) {
+        ageSummary.push([key, rec[key]]);
+      }
+    }
+
+    setAgeSummary(ageSummary);
+  };
+
+  const addDataToGenderSummary = (male, female) => {
+    const genderSummary = [];
+    genderSummary.push(["Gender", "Count"]);
+    genderSummary.push(["male", male]);
+    genderSummary.push(["female", female]);
+
+    setGenderSummary(genderSummary);
+  };
 
   console.log(ageSummary);
 
@@ -118,11 +127,7 @@ function RegistrationSummary() {
               <Chart
                 chartType="PieChart"
                 loader={<div>Loading Chart ...</div>}
-                data={[
-                  ["Task", "Hours per Day"],
-                  ["Male", 11],
-                  ["Female", 2],
-                ]}
+                data={genderSummary}
                 rootProps={{ "data-testid": "1" }}
               />
             </div>
