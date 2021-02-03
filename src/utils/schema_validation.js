@@ -38,3 +38,8 @@ export const registerEventSchema = Yup.object({
   companions: Yup.number().required(),
   issue: Yup.string().notRequired(),
 });
+
+export const loginSchema = Yup.object({
+  email: Yup.string().email().required(),
+  password: Yup.string().min(8).max(20).required(),
+});
