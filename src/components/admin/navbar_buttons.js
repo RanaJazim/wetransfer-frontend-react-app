@@ -13,7 +13,7 @@ const NavbarButtons = () => {
       <span>
         <img className="user3" src="/assets/images/user.png" width="40px" />
       </span>
-      <span className="name">Nome Admin</span>
+      <span className="name">{userStorage.getUser().username}</span>
 
       <span>
         <img

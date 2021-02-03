@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import * as userStorage from "../../utils/user_storage";
+
 const AdminLayout = ({ children }) => {
   return (
     <div>
@@ -10,7 +12,7 @@ const AdminLayout = ({ children }) => {
         <br />
         <img className="user1" src="/assets/images/user.png" width="50px" />
         <div className="admin">
-          <b>Name Admin</b>
+          <b>{userStorage.getUser().username}</b>
           <br />
           Administrator
         </div>
