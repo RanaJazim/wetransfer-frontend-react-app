@@ -3,26 +3,14 @@ import { Chart } from "react-google-charts";
 
 import { useApi } from "../../hooks";
 import * as eventService from "../../services/event";
-import { AdminLayout } from "../../components/admin";
+import { AdminLayout, NavbarButtons } from "../../components/admin";
 
 const DashboardScreen = () => {
   return (
     <AdminLayout>
       <div className="">
-        <header>
-          <div className="right-corner">
-            <span>
-              <img className="user3" src="icons/user.png" width="40px" />
-            </span>
-            <span className="name">Nome Admin</span>
-            <span>
-              <img src="icons/bell.png" width="25px" />
-            </span>
-            <span>
-              <img src="icons/power.png" width="25px" />
-            </span>
-          </div>
-        </header>
+        <NavbarButtons />
+
         <div className="page-heading">
           <div className="patch" />
           <span className="page-name">Dashboard</span>
