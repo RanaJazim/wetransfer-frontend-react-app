@@ -156,7 +156,7 @@ function EventRegistrations() {
             <section className="panel-heading">
               <header className="panel">
                 Subscribers{" "}
-                <button className="right-corner">Export Excel</button>{" "}
+                {/* <button className="right-corner">Export Excel</button>{" "} */}
               </header>
             </section>
           </div>
