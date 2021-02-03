@@ -1,7 +1,17 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
+import * as userStorage from "../../utils/user_storage";
+
 const Navbar = () => {
+  const isUserLoggedIn = () => {
+    const isLoggedIn = userStorage.isUserExist();
+    console.log(isLoggedIn);
+
+    return isUserLoggedIn ? "/admin-dashboard" : "/login";
+    return isLoggedIn;
+  };
+
   return (
     <header style={{ width: "100%" }}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -34,24 +44,31 @@ const Navbar = () => {
               <li className="nav-item">
                 <AppNavLink title="Contacts" route="/" />
               </li>
-              
-              
+
               <li className="nav-item">
                 <Link
-                  to="/login"
+                  to={isUserLoggedIn()}
                   className="nav-link ps-5 mt-2"
                   style={{ color: "white" }}
                 >
-                  <i className="fa fa-lock" aria-hidden="true" style={{ fontSize: 20}} />
+                  <i
+                    className="fa fa-lock"
+                    aria-hidden="true"
+                    style={{ fontSize: 20 }}
+                  />
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  to="/login"
+                  to={isUserLoggedIn()}
                   className="nav-link ps-5 mt-2"
                   style={{ color: "white" }}
                 >
-                  <i className="fa fa-lock" aria-hidden="true" style={{ fontSize: 20}} />
+                  <i
+                    className="fa fa-lock"
+                    aria-hidden="true"
+                    style={{ fontSize: 20 }}
+                  />
                 </Link>
               </li>
             </ul>
