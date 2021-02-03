@@ -67,8 +67,6 @@ function RegistrationSummary() {
     setGenderSummary(genderSummary);
   };
 
-  console.log(ageSummary);
-
   return (
     <>
       {eventApi.isLoading && <div className="spinner-border"></div>}
@@ -84,9 +82,11 @@ function RegistrationSummary() {
                 <div className="row no-gutters align-items-center">
                   <div className="col mr-2">
                     <div className="text-xs font-weight-bold  text-uppercase mb-1">
-                      Valor Total
+                      Grand Total
                     </div>
-                    <div className="h5 mb-0 font-weight-bold">$40,000</div>
+                    <div className="h5 mb-0 font-weight-bold">
+                      ${eventApi.res.data.totalPrice}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -102,7 +102,9 @@ function RegistrationSummary() {
                     <div className="text-xs font-weight-bold  text-uppercase mb-1">
                       Inscripto
                     </div>
-                    <div className="h5 mb-0 font-weight-bold">500</div>
+                    <div className="h5 mb-0 font-weight-bold">
+                      {eventApi.res.data.total}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -146,6 +148,20 @@ function EventRegistrations() {
     eventApi.request();
   }, []);
 
+  const handleUpdateStatus = (regEvent) => {
+    if (!regEvent.isPending) {
+      const result = window.confirm(
+        "Are you sure to change the status approved to pending."
+      );
+      if (result) {
+        updateStatus(regEvent.id);
+      }
+    }
+    updateStatus(regEvent.id);
+  };
+
+  const updateStatus = (id) => {};
+
   return (
     <>
       {eventApi.isLoading && <div className="spinner-border"></div>}
@@ -178,8 +194,15 @@ function EventRegistrations() {
                   <td> {reg.dateOfBirth}</td>
                   <td>{reg.nif}</td>
                   <td>{reg.phone}</td>
-                  <td className="btn-pending">
-                    <button>Pending</button>
+                  <td
+                    className={reg.isPending ? "btn-pending" : "btn-accepted"}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => handleUpdateStatus(reg)}
+                    >
+                      {reg.isPending ? "Pending" : "Approved"}
+                    </button>
                   </td>
                 </tr>
               ))}
