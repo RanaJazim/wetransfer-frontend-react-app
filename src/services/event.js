@@ -36,6 +36,10 @@ export function registerToEvent(userDetail) {
   return api.post("/event-register", userDetail);
 }
 
+export function allRegistrationsForEvent() {
+  return api.get("/event-register/registration");
+}
+
 function setFieldsToFormData(fd, fields) {
   for (const key in fields) {
     fd.append(key, fields[key]);

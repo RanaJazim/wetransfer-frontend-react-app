@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Chart } from "react-google-charts";
 
+import { useApi } from "../../hooks";
+import * as eventService from "../../services/event";
 import { AdminLayout } from "../../components/admin";
 
 const DashboardScreen = () => {
@@ -111,78 +113,8 @@ const DashboardScreen = () => {
             </div>
           </div>
           <br />
-          <div className="row">
-            <div className="col-lg-12">
-              <section className="panel-heading">
-                <header className="panel">
-                  Subscribers{" "}
-                  <button className="right-corner">Export Excel</button>{" "}
-                </header>
-              </section>
-            </div>
-            <table className="table">
-              <tbody>
-                <tr>
-                  <th>Nuero</th>
-                  <th>Nome</th>
-                  <th>Date</th>
-                  <th>NIF</th>
-                  <th>Contacto</th>
-                  <th>Estado Pegamento</th>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>2004-07-06</td>
-                  <td>Angeline Mcclain</td>
-                  <td>Rosser</td>
-                  <td>176-026-5992</td>
-                  <td className="btn-pending">
-                    <button>Pending</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>2004-07-06</td>
-                  <td>Angeline Mcclain</td>
-                  <td>Rosser</td>
-                  <td>176-026-5992</td>
-                  <td className="btn-accepted">
-                    <button>Accepted</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>2004-07-06</td>
-                  <td>Angeline Mcclain</td>
-                  <td>Rosser</td>
-                  <td>176-026-5992</td>
-                  <td className="btn-pending">
-                    <button>Pending</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>2004-07-06</td>
-                  <td>Angeline Mcclain</td>
-                  <td>Rosser</td>
-                  <td>176-026-5992</td>
-                  <td className="btn-pending">
-                    <button>Pending</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>001</td>
-                  <td>2004-07-06</td>
-                  <td>Angeline Mcclain</td>
-                  <td>Rosser</td>
-                  <td>176-026-5992</td>
-                  <td className="btn-accepted">
-                    <button>Accepted</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+
+          <EventRegistrations />
         </div>
       </div>
     </AdminLayout>
@@ -190,3 +122,55 @@ const DashboardScreen = () => {
 };
 
 export default DashboardScreen;
+
+function EventRegistrations() {
+  const eventApi = useApi(eventService.allRegistrationsForEvent);
+
+  useEffect(() => {
+    eventApi.request();
+  }, []);
+
+  return (
+    <>
+      {eventApi.isLoading && <div className="spinner-border"></div>}
+
+      {!eventApi.isLoading && eventApi.res && (
+        <div className="row">
+          <div className="col-lg-12">
+            <section className="panel-heading">
+              <header className="panel">
+                Subscribers{" "}
+                <button className="right-corner">Export Excel</button>{" "}
+              </header>
+            </section>
+          </div>
+          <table className="table">
+            <tbody>
+              <tr>
+                <th>Nuero</th>
+                <th>Nome</th>
+                <th>Date</th>
+                <th>NIF</th>
+                <th>Contacto</th>
+                <th>Estado Pegamento</th>
+              </tr>
+
+              {eventApi.res.data.map((reg) => (
+                <tr key={reg.id}>
+                  <td>{reg.id}</td>
+                  <td>{reg.name}</td>
+                  <td> {reg.dateOfBirth}</td>
+                  <td>{reg.nif}</td>
+                  <td>{reg.phone}</td>
+                  <td className="btn-pending">
+                    <button>Pending</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
+  );
+}
