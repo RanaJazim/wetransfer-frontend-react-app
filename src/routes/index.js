@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+import PrivateRoute from "./private_route";
 import {
   AboutUsScreen,
   CreateEvent,
@@ -41,18 +42,22 @@ const AppRoutes = () => {
         <LoginScreen />
       </Route>
 
-      <Route path={`/${adminRoutePrefix}-dashboard`}>
+    <PrivateRoute path={`/${adminRoutePrefix}-dashboard`} component={DashboardScreen} />
+      {/* <Route path={`/${adminRoutePrefix}-dashboard`}>
         <DashboardScreen />
-      </Route>
+      </Route> */}
+      <PrivateRoute path={`/${adminRoutePrefix}-create-event`} component={CreateEvent} />
       <Route path={`/${adminRoutePrefix}-create-event`}>
         <CreateEvent />
       </Route>
-      <Route path={`/${adminRoutePrefix}-about-us`}>
+      <PrivateRoute path={`/${adminRoutePrefix}-about-us`} component={CreateOrUpdateAbout} />
+      {/* <Route path={`/${adminRoutePrefix}-about-us`}>
         <CreateOrUpdateAbout />
-      </Route>
-      <Route path={`/${adminRoutePrefix}-events`}>
+      </Route> */}
+      <PrivateRoute path={`/${adminRoutePrefix}-events`} component={EventListScreen} />
+      {/* <Route path={`/${adminRoutePrefix}-events`}>
         <EventListScreen />
-      </Route>
+      </Route> */}
       <Redirect exact from="/" to="/about-us" />
     </Switch>
   );

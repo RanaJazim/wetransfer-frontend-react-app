@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { useApi } from "../../hooks";
 import { loginSchema } from "../../utils";
@@ -27,6 +27,9 @@ const LoginScreen = () => {
         <img className="user" src="/assets/images/profile-user.png" />
         <p>Log in Administrator</p>
         <LoginForm onSubmit={handleSubmit} />
+        <Link to="/">
+          <i className="fa fa-backward" aria-hidden="true"></i> Back to Site
+        </Link>
         <div className="my-2 mb-3">
           <ServerError error={authApi.error} />
         </div>

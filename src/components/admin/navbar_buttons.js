@@ -4,8 +4,8 @@ import * as userStorage from "../../utils/user_storage";
 
 const NavbarButtons = () => {
   const handleLogout = () => {
-    alert("logout");
-    // userStorage.clearFromStorage();
+    userStorage.clearFromStorage();
+    window.location.reload();
   };
 
   return (
