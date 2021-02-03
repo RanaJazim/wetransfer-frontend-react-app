@@ -44,6 +44,10 @@ export function registrationSummaryForCurrentEvent() {
   return api.get("/event-register/summary");
 }
 
+export function updateStatus(id) {
+  return api.patch("/event-register/" + id);
+}
+
 function setFieldsToFormData(fd, fields) {
   for (const key in fields) {
     fd.append(key, fields[key]);
