@@ -40,6 +40,10 @@ export function allRegistrationsForEvent() {
   return api.get("/event-register/registration");
 }
 
+export function registrationSummaryForCurrentEvent() {
+  return api.get("/event-register/summary");
+}
+
 function setFieldsToFormData(fd, fields) {
   for (const key in fields) {
     fd.append(key, fields[key]);
