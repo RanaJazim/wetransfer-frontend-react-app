@@ -1,11 +1,23 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
+import { useApi } from "../../hooks";
 import { loginSchema } from "../../utils";
+import { ServerError } from "../../components";
+import * as authService from "../../services/auth";
+import * as userStorage from "../../utils/user_storage";
 import { AppForm, AppField, AppError } from "../../components/app-form";
 
 const LoginScreen = () => {
-  const handleSubmit = ({ formValues }) => {
-    alert("success");
+  const history = useHistory();
+  const authApi = useApi(authService.login, { isThrowErr: true });
+
+  const handleSubmit = async ({ formValues }) => {
+    try {
+      const res = await authApi.request(formValues);
+      userStorage.setUser(res.data);
+      history.replace("/admin-dashboard");
+    } catch (_) {}
   };
 
   return (
@@ -15,6 +27,9 @@ const LoginScreen = () => {
         <img className="user" src="/assets/images/profile-user.png" />
         <p>Log in Administrator</p>
         <LoginForm onSubmit={handleSubmit} />
+        <div className="my-2 mb-3">
+          <ServerError error={authApi.error} />
+        </div>
       </div>
     </div>
   );
@@ -30,7 +45,6 @@ function LoginForm({ onSubmit }) {
       handleSubmit={onSubmit}
     >
       <div className="input-group">
-        {/* <input type="text" className="form-control" placeholder="Username" /> */}
         <AppField
           field="email"
           className="form-control"
@@ -47,11 +61,6 @@ function LoginForm({ onSubmit }) {
       <AppError field="email" />
 
       <div className="input-group my-4">
-        {/* <input
-          type="password"
-          className="form-control"
-          placeholder="Password"
-        /> */}
         <AppField
           field="password"
           type="password"
