@@ -56,7 +56,7 @@ body {
 }
 
 .active {
-  border-bottom: 1px solid #fff;
+  color: white;
 }
 button {
   border-radius: 5px !important;

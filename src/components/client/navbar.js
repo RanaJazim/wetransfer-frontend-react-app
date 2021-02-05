@@ -1,7 +1,35 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, matchPath, NavLink, useLocation } from "react-router-dom";
 
 import * as userStorage from "../../utils/user_storage";
+
+function _Navbar() {
+  return (
+    <nav
+      className="navbar navbar-expand-sm"
+      style={{ backgroundColor: "#2c8850" }}
+    >
+      {/* Links */}
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <a className="nav-link" href="#">
+            Link 1
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">
+            Link 2
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">
+            Link 3
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
+}
 
 const Navbar = () => {
   const isUserLoggedIn = () => {
@@ -58,19 +86,6 @@ const Navbar = () => {
                   />
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link
-                  to={isUserLoggedIn()}
-                  className="nav-link ps-5 mt-2"
-                  style={{ color: "white" }}
-                >
-                  <i
-                    className="fa fa-lock"
-                    aria-hidden="true"
-                    style={{ fontSize: 20 }}
-                  />
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
@@ -82,15 +97,26 @@ const Navbar = () => {
 export default Navbar;
 
 function AppNavLink({ title, route }) {
+  const location = useLocation();
+  const isActive = !!matchPath(location.pathname, route);
+
+  const getActiveStyle = () => {
+    if (isActive) {
+      return { borderBottom: "1px solid white", paddingBottom: "10px" };
+    }
+    return {};
+  };
+
   return (
     <NavLink
-      className="nav-link ps-5"
+      className="nav-link text-center "
       style={{ color: "white" }}
-      activeClassName="active"
       to={route}
       exact
     >
-      <h4>{title}</h4>
+      <span className="mx-5" style={getActiveStyle()}>
+        {title}
+      </span>
     </NavLink>
   );
 }
