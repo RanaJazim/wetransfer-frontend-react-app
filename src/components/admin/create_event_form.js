@@ -65,39 +65,39 @@ function CreateEventForm({ onSubmit, formValues, error }) {
           <br />
         </div>
         <div className="leftline">
-          <div>Limite Inscicao</div>
+          <div>Apply Date and Time</div>
           <div className="form-inline">
             <AppField
               field="applyDate"
               type="date"
-              placeholder="Selecionar Data"
+              placeholder="Event Apply Date"
             />
-            <AppField field="applyTime" placeholder="Introduza Hora Limite" />
+            <AppField field="applyTime" placeholder="Event Apply Time" />
           </div>
         </div>
         <div className="rightline">
-          <div>Event Date</div>
+          <div>Event Date and Time</div>
           <div className="form-inline">
             <AppField
               field="eventDate"
               type="date"
-              placeholder="Selecionar Data"
+              placeholder="Event Date"
             />
-            <AppField field="eventTime" placeholder="Hora Evento" />
+            <AppField field="eventTime" placeholder="Event Time" />
           </div>
         </div>
         <div className="leftline">
-          <div>Limite Inscicao</div>
+          <div>Location</div>
           <div className="form-inline">
-            <AppField field="location" placeholder="Localizacao" />
+            <AppField field="location" placeholder="Location" />
           </div>
         </div>
         <div className="rightline">
-          <div>Percursos</div>
+          <div>Shorten Rotues</div>
           <div className="form-inline">
             <AppField
               field="shortenRoutes"
-              placeholder="Intorduzir Percursos"
+              placeholder="Shorten Routes .."
             />
           </div>
         </div>
