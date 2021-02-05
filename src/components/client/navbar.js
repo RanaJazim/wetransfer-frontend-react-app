@@ -42,7 +42,7 @@ const Navbar = () => {
                 <AppNavLink title="Inscriptions" route="/" />
               </li>
               <li className="nav-item">
-                <AppNavLink title="Contacts" route="/" />
+                <AppNavLink title="Contacts" route="/contact-us" />
               </li>
 
               <li className="nav-item">

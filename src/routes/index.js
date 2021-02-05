@@ -15,6 +15,7 @@ import {
   EventRegisterStepTwoScreen,
   EventRegisterStepThreeScreen,
   LoginScreen,
+  ContactScreen,
 } from "../screens/client";
 import { CreateOrUpdateAbout } from "../components/admin";
 
@@ -38,26 +39,32 @@ const AppRoutes = () => {
       <Route path="/event-register-step-three">
         <EventRegisterStepThreeScreen />
       </Route>
+      <Route path="/contact-us">
+        <ContactScreen />
+      </Route>
       <Route path="/login">
         <LoginScreen />
       </Route>
 
-    <PrivateRoute path={`/${adminRoutePrefix}-dashboard`} component={DashboardScreen} />
-      {/* <Route path={`/${adminRoutePrefix}-dashboard`}>
-        <DashboardScreen />
-      </Route> */}
-      <PrivateRoute path={`/${adminRoutePrefix}-create-event`} component={CreateEvent} />
+      <PrivateRoute
+        path={`/${adminRoutePrefix}-dashboard`}
+        component={DashboardScreen}
+      />
+      <PrivateRoute
+        path={`/${adminRoutePrefix}-create-event`}
+        component={CreateEvent}
+      />
       <Route path={`/${adminRoutePrefix}-create-event`}>
         <CreateEvent />
       </Route>
-      <PrivateRoute path={`/${adminRoutePrefix}-about-us`} component={CreateOrUpdateAbout} />
-      {/* <Route path={`/${adminRoutePrefix}-about-us`}>
-        <CreateOrUpdateAbout />
-      </Route> */}
-      <PrivateRoute path={`/${adminRoutePrefix}-events`} component={EventListScreen} />
-      {/* <Route path={`/${adminRoutePrefix}-events`}>
-        <EventListScreen />
-      </Route> */}
+      <PrivateRoute
+        path={`/${adminRoutePrefix}-about-us`}
+        component={CreateOrUpdateAbout}
+      />
+      <PrivateRoute
+        path={`/${adminRoutePrefix}-events`}
+        component={EventListScreen}
+      />
       <Redirect exact from="/" to="/about-us" />
     </Switch>
   );
