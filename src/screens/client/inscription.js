@@ -60,7 +60,7 @@ function SingleInscription({ event }) {
               state: { event },
             }}
           >
-            <button className="btn btn-success m-2" type="button">
+            <button className="btn btn-success btn-sm m-2 mx-auto d-block" type="button">
               Sign Up
             </button>
           </Link>

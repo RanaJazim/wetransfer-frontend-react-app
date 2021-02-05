@@ -3,34 +3,6 @@ import { Link, matchPath, NavLink, useLocation } from "react-router-dom";
 
 import * as userStorage from "../../utils/user_storage";
 
-function _Navbar() {
-  return (
-    <nav
-      className="navbar navbar-expand-sm"
-      style={{ backgroundColor: "#2c8850" }}
-    >
-      {/* Links */}
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <a className="nav-link" href="#">
-            Link 1
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">
-            Link 2
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">
-            Link 3
-          </a>
-        </li>
-      </ul>
-    </nav>
-  );
-}
-
 const Navbar = () => {
   const isUserLoggedIn = () => {
     const isLoggedIn = userStorage.isUserExist();
