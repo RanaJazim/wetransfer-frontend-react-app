@@ -39,7 +39,7 @@ const Navbar = () => {
                 <AppNavLink title="Events" route="/events" />
               </li>
               <li className="nav-item">
-                <AppNavLink title="Inscriptions" route="/" />
+                <AppNavLink title="Inscriptions" route="/inscription" />
               </li>
               <li className="nav-item">
                 <AppNavLink title="Contacts" route="/contact-us" />

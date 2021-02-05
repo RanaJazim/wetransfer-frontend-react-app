@@ -5,3 +5,4 @@ export { default as EventRegisterStepTwoScreen } from "./event_register_step_two
 export { default as EventRegisterStepThreeScreen } from "./event_register_step_three";
 export { default as LoginScreen } from "./login";
 export { default as ContactScreen } from "./contact";
+export { default as InscriptionScreen } from "./inscription";

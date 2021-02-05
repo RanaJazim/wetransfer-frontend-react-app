@@ -16,6 +16,7 @@ import {
   EventRegisterStepThreeScreen,
   LoginScreen,
   ContactScreen,
+  InscriptionScreen,
 } from "../screens/client";
 import { CreateOrUpdateAbout } from "../components/admin";
 
@@ -41,6 +42,9 @@ const AppRoutes = () => {
       </Route>
       <Route path="/contact-us">
         <ContactScreen />
+      </Route>
+      <Route path="/inscription">
+        <InscriptionScreen />
       </Route>
       <Route path="/login">
         <LoginScreen />
