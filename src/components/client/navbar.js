@@ -48,7 +48,7 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   to={isUserLoggedIn()}
-                  className="nav-link ps-5 mt-2"
+                  className="nav-link ps-5"
                   style={{ color: "white" }}
                 >
                   <i
@@ -74,7 +74,7 @@ function AppNavLink({ title, route }) {
 
   const getActiveStyle = () => {
     if (isActive) {
-      return { borderBottom: "1px solid white", paddingBottom: "10px" };
+      return { borderBottom: "1px solid white", paddingBottom: "10px", fontSize: "18px" };
     }
     return {};
   };

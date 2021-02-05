@@ -24,10 +24,7 @@ const AboutUsClientScreen = () => {
                 <h2>{aboutApi.res.data.title}</h2>
                 <h6>{aboutApi.res.data.description}</h6>
               </div>
-              <div
-                className="col-xl-2 m-5 justify-content-end"
-                style={{ border: "1px solid #707070" }}
-              >
+              <div className="col-xl-2 m-5 justify-content-end">
                 <div>
                   <img
                     src={`${SERVER_BASE_URL}/${aboutApi.res.data.imagePath}`}
