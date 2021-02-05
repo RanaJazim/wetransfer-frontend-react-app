@@ -58,13 +58,10 @@ const EventRegisterStepTwoScreen = () => {
           </div>
         </div>
         <div className="float-end mb-5">
-          <a href="#">
-            <button className="btn btn-outline-success p-3 pt-1 pb-2">
-              Cancel
+          <Link to="/events">
+            <button className="btn btn-success p-4 pt-1 pb-2">
+              Back to Site
             </button>
-          </a>
-          <Link to="/event-register-step-three">
-            <button className="btn btn-success p-4 pt-1 pb-2">Pay</button>
           </Link>
         </div>
       </main>
